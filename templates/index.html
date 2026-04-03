@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>KawaiiGPT - AI Chatbot & Code Writer</title>
+    <link rel="stylesheet" href="/static/css/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/styles/github-dark.min.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/highlight.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
+</head>
+<body>
+    <div class="app-container">
+        <aside class="sidebar">
+            <div class="sidebar-header">
+                <div class="logo">
+                    <span class="logo-icon">✦</span>
+                    <span class="logo-text">KawaiiGPT</span>
+                </div>
+                <button class="new-chat-btn" id="newChatBtn">+ New Chat</button>
+            </div>
+            <div class="sidebar-section">
+                <p class="sidebar-label">Mode</p>
+                <div class="mode-selector">
+                    <button class="mode-btn active" data-mode="chat">
+                        <span>💬</span> Chat
+                    </button>
+                    <button class="mode-btn" data-mode="code">
+                        <span>💻</span> Code Writer
+                    </button>
+                </div>
+            </div>
+            <div class="sidebar-section">
+                <p class="sidebar-label">Quick Prompts</p>
+                <div class="quick-prompts" id="quickPrompts">
+                    <button class="quick-prompt-btn" data-prompt="Explain how async/await works in JavaScript with examples">JS Async/Await</button>
+                    <button class="quick-prompt-btn" data-prompt="Write a Python Flask REST API with CRUD operations">Flask REST API</button>
+                    <button class="quick-prompt-btn" data-prompt="Create a responsive navbar in HTML and CSS">HTML Navbar</button>
+                    <button class="quick-prompt-btn" data-prompt="Write a React component for a todo list with hooks">React Todo App</button>
+                    <button class="quick-prompt-btn" data-prompt="Write a SQL query to find duplicate records in a table">SQL Duplicates</button>
+                    <button class="quick-prompt-btn" data-prompt="Explain Big O notation with examples">Big O Notation</button>
+                </div>
+            </div>
+            <div class="sidebar-footer">
+                <div class="model-info">
+                    <span class="model-dot"></span>
+                    <span>GPT-4o</span>
+                </div>
+            </div>
+        </aside>
+
+        <main class="chat-area">
+            <div class="chat-header">
+                <button class="menu-toggle" id="menuToggle">☰</button>
+                <h1 class="chat-title" id="chatTitle">KawaiiGPT</h1>
+                <div class="header-actions">
+                    <button class="icon-btn" id="clearBtn" title="Clear chat">🗑</button>
+                </div>
+            </div>
+
+            <div class="messages-container" id="messagesContainer">
+                <div class="welcome-screen" id="welcomeScreen">
+                    <div class="welcome-logo">✦</div>
+                    <h2>Welcome to KawaiiGPT</h2>
+                    <p>Your AI chatbot and code writing assistant. Ask me anything or pick a quick prompt to get started!</p>
+                    <div class="welcome-features">
+                        <div class="feature-card">
+                            <span>💬</span>
+                            <h3>Smart Chat</h3>
+                            <p>Natural conversation with context memory</p>
+                        </div>
+                        <div class="feature-card">
+                            <span>💻</span>
+                            <h3>Code Writer</h3>
+                            <p>Generate clean, commented code in any language</p>
+                        </div>
+                        <div class="feature-card">
+                            <span>🔍</span>
+                            <h3>Code Review</h3>
+                            <p>Debug and improve your existing code</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="input-area">
+                <div class="input-wrapper">
+                    <textarea
+                        id="userInput"
+                        placeholder="Ask KawaiiGPT anything... or paste your code for review!"
+                        rows="1"
+                        maxlength="10000"
+                    ></textarea>
+                    <button class="send-btn" id="sendBtn" disabled>
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor">
+                            <path d="M3.478 2.405a.75.75 0 00-.926.94l2.432 7.905H13.5a.75.75 0 010 1.5H4.984l-2.432 7.905a.75.75 0 00.926.94 60.519 60.519 0 0018.445-8.986.75.75 0 000-1.218A60.517 60.517 0 003.478 2.405z" />
+                        </svg>
+                    </button>
+                </div>
+                <p class="input-hint">Press <kbd>Enter</kbd> to send · <kbd>Shift+Enter</kbd> for new line</p>
+            </div>
+        </main>
+    </div>
+
+    <script src="/static/js/app.js"></script>
+</body>
+</html>
