@@ -19,7 +19,9 @@ marked.setOptions({
 });
 
 const renderer = new marked.Renderer();
-renderer.code = function(code, language) {
+renderer.code = function(token) {
+    const code = typeof token === 'object' ? (token.text || '') : token;
+    const language = (typeof token === 'object' ? token.lang : arguments[1]) || 'plaintext';
     const lang = language || 'plaintext';
     const id = 'code-' + Math.random().toString(36).substr(2, 9);
     return `
